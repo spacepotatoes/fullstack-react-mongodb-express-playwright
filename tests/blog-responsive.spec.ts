@@ -6,11 +6,14 @@ const urls = ['/'];
 
 test.describe('Responsive Design – Visual Regression', () => {
   const viewports = [
-    { name: 'mobile',  width: 375,  height: 667 },
-    { name: 'tablet',  width: 768,  height: 1024 },
-    { name: 'desktop', width: 1280, height: 720 },
-    { name: 'wide',    width: 1920, height: 1080 },
-  ];
+  { name: 'mobile',   width: 375,  height: 667 },
+  { name: 'tablet',   width: 768,  height: 1024 },
+  { name: 'desktop',  width: 1280, height: 720 },
+  { name: 'wide',     width: 1920, height: 1080 },
+  // ← neu: echte große Monitore
+  { name: 'ultrawide', width: 3440, height: 1440 }, // 34" Ultrawide
+  { name: '5k',        width: 5120, height: 2880 }, // 5K iMac / Studio Display
+];
 
   for (const url of urls) {
     for (const vp of viewports) {
