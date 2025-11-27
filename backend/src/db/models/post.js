@@ -5,13 +5,19 @@ const postSchema = new Schema(
   {
     title: { type: String, required: true },
     author: { type: String, required: true },
-    contents: { type: String, required: true },
+    contents: {
+      type: String,
+      default: 'A new post has been created.',
+      required: false,
+    },
+    contents_large: { type: String },
     tags: [String],
     image: { type: String }, // ← Base64-Bild hier gespeichert (kann bis ~2-3 MB groß sein)
   },
   {
     timestamps: true,
-  }
+    strict: false,
+  },
 )
 
 export const Post = mongoose.model('Post', postSchema) // Großes 'P' ist besser!

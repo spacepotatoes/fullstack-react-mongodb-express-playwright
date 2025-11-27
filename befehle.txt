@@ -1,0 +1,14 @@
+// respektive frontend
+docker build --platform linux/amd64 -t spacepotatoes77/blog-backend:latest .
+docker tag blog-backend spacepotatoes77/blog-backend:latest                 
+docker push spacepotatoes77/blog-backend:latest
+
+docker stop blog-backend && docker rm -f blog-backend
+
+docker run -d \
+  --name blog-backend \
+  --restart unless-stopped \
+  -p 3003:3000 \
+  -e PORT=3000 \
+  -e DATABASE_URL="mongodb+srv://gtroianofotografie_db_user:z04oIamaP02cRW0u@cluster0.59bsb1s.mongodb.net/blog?retryWrites=true&w=majority" \
+  spacepotatoes77/blog-backend:latest
